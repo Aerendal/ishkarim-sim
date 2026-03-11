@@ -5,7 +5,7 @@
 > Łącznie unikalnych URL: **791**
 
 
-## 📄 Artykuły naukowe (124)
+## Artykuły naukowe (124)
 
 - <https://arxiv.org/abs/2010.08895>  
   _źródło: `Hybrid physics-ML notable papers & code`, `New hybrid physics–ML papers`, `New hybrid physics–ML research` +2_
@@ -168,7 +168,7 @@
 - <https://arxiv.org/abs/2601.14517>  
   _źródło: `New hybrid physics–ML research`_
 
-## 🐙 Repozytoria GitHub (112)
+## Repozytoria GitHub (112)
 
 - <https://github.com/NVIDIA/physicsnemo>  
   _źródło: `Hybrid physics-ML notable papers & code`, `New hybrid physics–ML papers`, `Nowości: hybrydowe modele fizyko‑obliczeniowe`_
@@ -331,7 +331,7 @@
 - <https://github.com/netblue30/firejail/issues/1743>  
   _źródło: `New papers SRE Simulation Formal Methods_04`_
 
-## 🤖 ML / modele (3)
+## ML / modele (3)
 
 - <https://huggingface.co/papers/1909.01377>  
   _źródło: `New practical hybrid‑physics research_04`_
@@ -340,7 +340,7 @@
 - <https://huggingface.co/papers?q=AI+benchmark+reporting>  
   _źródło: `New papers SRE Simulation Formal Methods_04`_
 
-## 📚 Dokumentacja (92)
+## Dokumentacja (92)
 
 - <https://docs.pytorch.org/docs/stable/generated/torch.use_deterministic_algorithms.html>  
   _źródło: `New hybrid physics–ML papers`, `New hybrid physics–ML research`, `New practical hybrid‑physics research_04` +1_
@@ -503,7 +503,7 @@
 - <https://sqlite.org/forum/forumpost/7a9cf28a4f0e0531>  
   _źródło: `New agent‑based simulation updates_04`_
 
-## 🔗 Inne zasoby (460)
+## Inne zasoby (460)
 
 - <https://en.wikipedia.org/wiki/Repast_%28modeling_toolkit%29>  
   _źródło: `New agent‑based simulation updates_04`, `New economic  and social simulation tools`, `New simulation research & tools` +1_
@@ -666,7 +666,7 @@
 - <https://assets-eu.researchsquare.com/files/rs-7615850/v1_covered_b97dd4c2-8a56-45fd-b150-2b332e98028e.pdf>  
   _źródło: `Nowe: MP‑ALOE i narzędzia symulacyjne`_
 
-## 📁 Katalogi źródłowe
+## Katalogi źródłowe
 
 Obszar `sim` zawiera **23** katalogów:
 
