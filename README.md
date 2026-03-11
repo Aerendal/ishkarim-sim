@@ -1,103 +1,102 @@
 # ishkarim-sim
 
-> Symulacje ABM i fizyczne: Mesa, differentiable physics, LLM w symulacjach społecznych.
+> **Symulacje agentowe (ABM) + differentiable physics — lokalne środowiska AI bez GPU**
 
-## Instalacja
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)]()
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue)]()
+[![License](https://img.shields.io/badge/license-MIT-green)]()
+[![CPU-only](https://img.shields.io/badge/CPU-only-orange)]()
+
+## Problem, który rozwiązujemy
+
+- Mesa/Sugarscape jako deterministyczne środowisko testowe dla agentów AI
+- Differentiable physics — gradienty przez symulator (RL, optymalizacja)
+- LLM-sterowane symulacje społeczne (agenci z pamięcią i celami)
+
+Pełna lista → [docs/PROBLEMS.md](docs/PROBLEMS.md)
+
+## Szybki start
 
 ```bash
+# Instalacja
 pip install -e projects/ishkarim-sim
+
+# Demo (10 sekund)
+python projects/ishkarim-sim/demo.py
 ```
 
-Lub lokalnie z tego repozytorium:
-
-```bash
-cd projects/ishkarim-sim
-pip install -e ".[dev]"
-```
-
-## Użycie
+## Użycie w kodzie
 
 ```python
 import ishkarim_sim as m
 
-# Lista dostępnych modułów
-print(m.MODULES)
-
-# Wczytaj indeks wiedzy
+# Wszystkie 23 katalogi wiedzy obszaru 'sim'
 docs = m.load_knowledge_index()
+print(f"{len(docs)} katalogów | obszar: {m.__area__}")
+
+# Narzędzia pomocnicze
+from ishkarim_sim.utils import read_work_md, extract_tags, extract_python_blocks
 ```
 
-## Obszar tematyczny
+## Dla kogo
 
-Ten projekt agreguje wiedzę z **23 katalogów** obszaru `sim`:
+- Prototypowanie strategii NPC przed implementacją w silniku gry
+- Modelowanie ekonomiczne (rynek, zasoby) dla AI decision-making
+- Testowanie hipotez badawczych o zachowaniach zbiorowych bez GPU
 
-- `AMBER  - CPU-only scaffold dla ABM`
-- `AMBER: kolumnowa architektura dla szybszych symulacji`
-- `Ceny dualne jako kompas w symulacjach`
-- `Differentiable simulators & hybrids`
-- `Hybrid physics-ML notable papers & code`
-- `Mikrojądra dyfuzyjne w silnikach symulacyjnych`
-- `Mini‑grid i TextWorld: małe, deterministyczne harnessy`
-- `New agent‑based simulation updates_04`
-- … i 15 więcej (pełna lista w [MODULES.md](MODULES.md))
+## Dokumentacja
 
-## Przykładowe źródła
+| Plik | Zawartość |
+|------|-----------|
+| [docs/PROBLEMS.md](docs/PROBLEMS.md) | Co rozwiązuje / czego nie / znane problemy |
+| [docs/api.md](docs/api.md) | Dokumentacja API |
+| [docs/overview.md](docs/overview.md) | Przegląd obszaru |
+| [docs/sources.md](docs/sources.md) | Źródłowe katalogi wiedzy |
+| [MODULES.md](MODULES.md) | Pełny indeks 23 katalogów |
 
-### AMBER  - CPU-only scaffold dla ABM
+## Testy i benchmarki
 
-# WORK — AMBER: CPU-only scaffold dla ABM
-**Data:** 2026-02-27  
-**Autor:** deep-index (Copilot)  
-**Status:** PLAN WDROŻENIOWY — scaffold koncepcyjnie domknięty, wymaga dopięcia `qabm.worker` i testów integracyjnych  
-**Źródła:** pliki `_1.md` – `_16.md` w tym katalogu
+```bash
+# Testy jednostkowe
+pytest tests/test_sim.py -v
 
-### AMBER: kolumnowa architektura dla szybszych symulacji
+# Testy domenowe (z prawdziwymi danymi)
+pytest tests/test_sim_domain.py -v
 
-# WORK — AMBER: kolumnowa architektura dla szybszych symulacji
-## 0-Metadane
-- **Ścieżka:** AMBER: kolumnowa architektura dla szybszych symulacji/
-- **Liczba plików:** 21/21 (wszystkie z treścią, brak placeholderów)
-- **Tagi:** ABM, Polars, columnar, LazyFrame, agent-simulation, determinism, event-ledger, snapshot, pytest, edge-cases
-
-### Ceny dualne jako kompas w symulacjach
-
-# Ceny dualne jako kompas w symulacjach — WORK
-_Data: 2026-02-27_
-## 0 — Metadane
-- **Projekt**: Ceny dualne (shadow prices) jako sygnał planistyczny dla agentów i RL
-- **Domena**: Programowanie liniowe / alokacja zasobów / systemy agentowe / RL z ograniczeniami
-
+# Benchmarki wydajnościowe
+python benchmarks/bench_sim.py --quick
+```
 
 ## Struktura projektu
 
 ```
 ishkarim-sim/
-├── pyproject.toml        # installable package
+├── demo.py                    ← uruchom mnie
+├── pyproject.toml
 ├── README.md
-├── MODULES.md            # pełny indeks 23 katalogów-źródeł
-├── src/
-│   └── ishkarim_sim/
-│       ├── __init__.py   # publiczne API
-│       ├── utils.py      # wspólne narzędzia
-│       └── *.py          # kod wyekstrahowany z WORK.md
+├── MODULES.md                 ← 23 katalogów-źródeł
+├── docs/
+│   ├── PROBLEMS.md            ← co rozwiązuje / czego nie
+│   ├── api.md                 ← dokumentacja API
+│   ├── overview.md
+│   └── sources.md
+├── src/ishkarim_sim/
+│   ├── __init__.py            ← MODULES list + load_knowledge_index()
+│   ├── utils.py               ← read_work_md, extract_tags, extract_python_blocks
+│   └── snippets/              ← kod z WORK.md (referencyjny)
 ├── tests/
-│   ├── __init__.py
-│   └── test_sim.py
-└── docs/
-    ├── overview.md
-    └── sources.md
+│   ├── test_sim.py         ← testy jednostkowe
+│   └── test_sim_domain.py  ← testy domenowe
+└── benchmarks/
+    └── bench_sim.py        ← benchmarki wydajnościowe
 ```
 
-## Testy
+## Ograniczenia
 
-```bash
-pytest projects/ishkarim-sim/tests/ -v
-```
-
-## Źródło danych
-
-Katalogi źródłowe znajdują się w katalogu głównym repozytorium Ishkarim.
-Każdy katalog zawiera `WORK.md` (notatki badawcze) i `TAGS.md` (metadane).
+> ⚠️ To projekt **referencyjny** — wzorce i wiedza, nie gotowa biblioteka produkcyjna.
+> Przed wdrożeniem produkcyjnym przeczytaj [docs/PROBLEMS.md](docs/PROBLEMS.md).
 
 ---
-*Wygenerowano automatycznie przez `scripts/build_projects.py`*
+
+*Część ekosystemu [Ishkarim](../../README.md) — 23 katalogów wiedzy obszaru `sim`*
+*Wygenerowano: 2026-03-11 | `scripts/build_projects.py` + `scripts/enrich_projects.py`*
