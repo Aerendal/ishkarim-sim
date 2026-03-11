@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/ishkarim_sim/__init__.py
+src/ishkarim_sim/extracted.py
+src/ishkarim_sim/simulation.py
+src/ishkarim_sim/utils.py
+src/ishkarim_sim.egg-info/PKG-INFO
+src/ishkarim_sim.egg-info/SOURCES.txt
+src/ishkarim_sim.egg-info/dependency_links.txt
+src/ishkarim_sim.egg-info/requires.txt
+src/ishkarim_sim.egg-info/top_level.txt
+src/ishkarim_sim/snippets/__init__.py
+src/ishkarim_sim/snippets/extracted.py
+src/ishkarim_sim/snippets/simulation.py
+tests/test_sim.py

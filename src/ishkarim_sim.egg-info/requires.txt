@@ -1,0 +1,10 @@
+
+[dev]
+pytest>=7
+pytest-cov
+
+[rag]
+sentence-transformers>=2.2
+
+[sqlite]
+sqlite-utils>=3.35
